@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block home %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendulum Dowsing</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      color: #dcdcdc;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #e0c0ff;
+      text-shadow: 0 0 10px #8e44ad;
+      margin-bottom: 2rem;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #8e44ad, 0 0 20px #6c3483;
+      }
+      to {
+        text-shadow: 0 0 20px #d2b4de, 0 0 40px #af7ac5;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    p:nth-of-type(1) { animation-delay: 0.3s; }
+    p:nth-of-type(2) { animation-delay: 0.6s; }
+    p:nth-of-type(3) { animation-delay: 0.9s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pendulum-wrapper {
+      margin: 3rem auto;
+      width: 120px;
+      height: 250px;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .string {
+      width: 2px;
+      height: 150px;
+      background: #aaa;
+      margin: 0 auto;
+    }
+
+    .bob {
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at 30% 30%, #ccc, #333);
+      border-radius: 50%;
+      margin: 0 auto;
+      box-shadow: 0 0 15px #af7ac5;
+    }
+
+    .pendulum {
+      transform-origin: top center;
+    }
+
+    .swing {
+      animation: swing 2s ease-in-out infinite;
+    }
+
+    @keyframes swing {
+      0%   { transform: rotate(0deg); }
+      25%  { transform: rotate(15deg); }
+      50%  { transform: rotate(0deg); }
+      75%  { transform: rotate(-15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pendulum Dowsing</h1>
+
+    <div class="pendulum-wrapper">
+      <div class="pendulum swing" id="pendulum">
+        <div class="string"></div>
+        <div class="bob"></div>
+      </div>
+    </div>
+
+    <p>Pendulum dowsing is a spiritual tool used to receive intuitive answers from the subconscious or higher self. The pendulum reacts to subtle energies and helps bring clarity to yes/no questions.</p>
+    <p>Observe the pendulum as it swings. Calm your mind, ask a question silently, and watch the motion—it may guide your answer.</p>
+    <p>This ancient divination technique is often used for spiritual guidance, energy healing, and decision-making.</p>
+  </div>
+
+  <footer>
+    © 2025 Sacred Flow Energy
+  </footer>
+
+</body>
+</html>
+{% endblock home %}
+

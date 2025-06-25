@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block home %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reiki Healing</title>
+<style>
+  /* Basic Reset & Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  body {
+    margin: 0;
+    background: #121212;
+    color: #ccc;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 3rem;
+    text-align: center;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #8affdb, 0 0 10px #8affdb, 0 0 20px #00bfa5, 0 0 40px #00bfa5;
+      color: #aaffcc;
+    }
+    to {
+      text-shadow: 0 0 20px #00bfa5, 0 0 30px #00bfa5, 0 0 50px #008065, 0 0 70px #008065;
+      color: #c0fff0;
+    }
+  }
+
+  .reiki-symbol {
+    display: block;
+    margin: 2rem auto 3rem;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #00bfa5 40%, transparent 70%);
+    box-shadow: 0 0 15px #00bfa5, 0 0 30px #00bfa5;
+    animation: pulse 4s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px #00bfa5, 0 0 30px #00bfa5;
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 25px #00fff0, 0 0 50px #00fff0;
+      transform: scale(1.1);
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #ddd;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+    animation-delay: 0.5s;
+  }
+
+  p:nth-of-type(2) {
+    animation-delay: 1s;
+  }
+
+  p:nth-of-type(3) {
+    animation-delay: 1.5s;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reiki Healing</h1>
+    <div class="reiki-symbol" aria-label="Glowing Reiki symbol"></div>
+
+    <p>Reiki is a gentle, hands-on healing technique that originates from Japan. It is based on the idea that energy flows through us and that this energy can be channeled to promote physical, emotional, and spiritual well-being.</p>
+    
+    <p>During a Reiki session, the practitioner channels energy through their hands to the recipient, helping to clear energy blockages, reduce stress, and encourage natural healing processes.</p>
+    
+    <p>This holistic approach complements other medical treatments and can be beneficial for anyone seeking balance and harmony in their life.</p>
+  </div>
+
+  <footer>
+    © 2025 Your Reiki Healing Center
+  </footer>
+</body>
+</html>
+
+{% endblock home%}

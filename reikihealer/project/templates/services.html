@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block home %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kiran Divine Healing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0d0f;
+      color: #d8b0ff;
+      margin: 0;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Floating crystal background */
+    .crystal-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.04), transparent 40%),
+        radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.03), transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 40%);
+      animation: floatCrystals 90s linear infinite;
+      opacity: 0.12;
+    }
+
+    @keyframes floatCrystals {
+      0% {
+        background-position: 0 0, 100px 100px, 200px 200px;
+      }
+      100% {
+        background-position: 200px 200px, 0 0, 100px 100px;
+      }
+    }
+
+    /* Make page content narrower and centered */
+    .container {
+      max-width: 900px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1646650604503-21feac2b0b22?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJlaWtpJTIwZW5lcmd5JTIwaGVhbGluZ3xlbnwwfHwwfHx8MA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #7a63ff88;
+      margin-bottom: 60px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(13, 13, 15, 0.7); /* darker overlay for better contrast */
+      border-radius: 20px;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #d8b0ff;
+      text-shadow: 0 0 6px #9c64ff88;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #cbbfff;
+      text-shadow: 0 0 4px #8a4fff66;
+    }
+
+    .btn-main {
+      background-color: #9c64ff;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      margin-top: 25px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 15px #b47aff;
+    }
+
+    .btn-main:hover {
+      background-color: #7a47ff;
+      box-shadow: 0 0 30px #d5b8ff;
+    }
+
+    .section {
+      padding: 50px 0;
+      color: #cbbfff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 45px;
+      color: #b19eff;
+      text-shadow: 0 0 6px #9c64ff88;
+    }
+
+    .card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(156, 100, 255, 0.3);
+      overflow: hidden;
+      transition: transform 0.3s;
+      background: #1e153a;
+      color: #d8b0ff;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px #9c64ffcc;
+    }
+
+    .card-img-top {
+      height: 220px;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease;
+    }
+
+    .card-img-top:hover {
+      filter: brightness(1);
+    }
+
+    .card-body {
+      text-align: center;
+    }
+
+    footer {
+      background-color: #1e153a;
+      padding: 20px 0;
+      text-align: center;
+      color: #b19effcc;
+      font-size: 0.95rem;
+      box-shadow: inset 0 1px 10px #4a3e8c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="crystal-bg"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Welcome to Kiran Divine Healing</h1>
+      <p>Discover peace, wellness, and spiritual transformation through ancient healing techniques.</p>
+      <button class="btn-main">Explore Our Services</button>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Healing Services</h2>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100">
+            <img src="https://media.istockphoto.com/id/1444423858/photo/sensing-seven-chakras-and-sending-healing.jpg?s=612x612&w=0&k=20&c=7iGrUKzG9BGRTD6L7mhRdknXQYze_GxzNnGS4xngZWY=" class="card-img-top" alt="Reiki Healing">
+            <div class="card-body">
+              <h5 class="card-title">Reiki Healing</h5>
+              <p class="card-text">Promote emotional and physical balance with universal energy healing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100">
+            <img src="https://images.unsplash.com/photo-1600429991827-5224817554f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFyb3QlMjBjYXJkc3xlbnwwfHwwfHx8MA%3D%3D" class="card-img-top" alt="Tarot Reading">
+            <div class="card-body">
+              <h5 class="card-title">Tarot Card Reading</h5>
+              <p class="card-text">Find clarity and guidance with personalized tarot insights.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100">
+            <img src="https://servdharm.com/cdn/shop/articles/imgpsh_fullsize_anim_1_1024x1024.jpg?v=1657455601" class="card-img-top" alt="Lama Fera Healing">
+            <div class="card-body">
+              <h5 class="card-title">Lama Fera</h5>
+              <p class="card-text">Buddhist healing to release negativity and promote deep healing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card h-100">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPL5ba3TbR4sRdNKQIoroMldmEifbtIVD1Wg&s" class="card-img-top" alt="Pendulum Dowsing">
+            <div class="card-body">
+              <h5 class="card-title">Pendulum Dowsing</h5>
+              <p class="card-text">Connect with your intuition and access answers from within.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Kiran Divine Healing. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+{% endblock home %}

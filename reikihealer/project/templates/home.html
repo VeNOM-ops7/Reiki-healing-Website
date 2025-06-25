@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block home %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome | Reiki Healing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #0d0d0f;
+      color: #f3e8ff;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Full background image with overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1615484477655-59c01b4043c0?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      z-index: -3;
+      opacity: 0.6;
+    }
+
+    /* Crystal floating background */
+    .crystal-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.04), transparent 40%),
+        radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.03), transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 40%);
+      animation: floatCrystals 90s linear infinite;
+      opacity: 0.15;
+    }
+
+    @keyframes floatCrystals {
+      0% {
+        background-position: 0 0, 100px 100px, 200px 200px;
+      }
+      100% {
+        background-position: 200px 200px, 0 0, 100px 100px;
+      }
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: rgba(13, 13, 15, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1rem;
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #f3dcff;
+      text-shadow: 0 0 10px #ae7cff;
+      font-weight: bold;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #e3d4ff;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: #b57bff;
+      border: none;
+      padding: 0.7rem 2.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      box-shadow: 0 0 15px #d3b0ff;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #cd9fff;
+      box-shadow: 0 0 30px #e5caff;
+    }
+
+    .carousel-inner img {
+      height: 450px;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease;
+    }
+
+    .carousel-inner img:hover {
+      filter: brightness(1);
+    }
+
+    .carousel-caption {
+      background: rgba(20, 20, 30, 0.85);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      color: #e0d7ff;
+      text-shadow: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .carousel-inner img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="crystal-bg"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Reiki Healing</h1>
+      <p>Your sanctuary for peace, energy balance, and spiritual wellness.</p>
+      <a href="/services" class="btn btn-primary">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- Carousel Section -->
+  <section class="container my-5" style="position: relative; z-index: 2;">
+    <div id="healingCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner shadow">
+
+        <div class="carousel-item active">
+          <img src="https://plus.unsplash.com/premium_photo-1689693058070-9e30d131f2d6?w=800" class="d-block w-100" alt="Reiki Healing">
+          <div class="carousel-caption">
+            <h5>Reiki Healing</h5>
+            <p>Experience the energy flow and deep relaxation with traditional Reiki.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1627764574958-fb54cd7d7448?w=800" class="d-block w-100" alt="Tarot Reading">
+          <div class="carousel-caption">
+            <h5>Tarot Card Reading</h5>
+            <p>Unlock the mysteries of your path with intuitive tarot guidance.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="https://media.istockphoto.com/id/510586450/photo/therapist-using-pendulum.jpg?s=800x612" class="d-block w-100" alt="Pendulum Dowsing">
+          <div class="carousel-caption">
+            <h5>Pendulum Dowsing</h5>
+            <p>Find answers through the ancient art of pendulum energy reading.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#healingCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#healingCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+{% endblock home %}

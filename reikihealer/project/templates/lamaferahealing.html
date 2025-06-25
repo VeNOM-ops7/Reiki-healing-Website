@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% block home %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lama Fera Healing</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      font-family: 'Poppins', sans-serif;
+      color: #dcdcdc;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      position: relative;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: #e5d4ff;
+      text-shadow: 0 0 10px #8e44ad, 0 0 20px #6c3483;
+      animation: glow 3s ease-in-out infinite alternate;
+      margin-bottom: 2rem;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #8e44ad, 0 0 20px #6c3483;
+      }
+      to {
+        text-shadow: 0 0 20px #d2b4de, 0 0 40px #af7ac5;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    p:nth-of-type(1) { animation-delay: 0.3s; }
+    p:nth-of-type(2) { animation-delay: 0.7s; }
+    p:nth-of-type(3) { animation-delay: 1.1s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .symbols {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+      background: radial-gradient(ellipse at center, rgba(108,52,131,0.15) 0%, transparent 70%);
+    }
+
+    .symbol {
+      position: absolute;
+      font-size: 28px;
+      color: #6c3483;
+      opacity: 0.12;
+      animation: floatSymbol 20s linear infinite;
+      user-select: none;
+      filter: drop-shadow(0 0 2px #a285d6);
+      will-change: transform;
+    }
+
+    .symbol:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 22s; font-size: 26px; }
+    .symbol:nth-child(2) { left: 25%; animation-delay: 5s; animation-duration: 25s; font-size: 32px; }
+    .symbol:nth-child(3) { left: 40%; animation-delay: 10s; animation-duration: 20s; font-size: 28px; }
+    .symbol:nth-child(4) { left: 60%; animation-delay: 3s; animation-duration: 23s; font-size: 30px; }
+    .symbol:nth-child(5) { left: 80%; animation-delay: 7s; animation-duration: 21s; font-size: 24px; }
+
+    @keyframes floatSymbol {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.12; }
+      50% { opacity: 0.2; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(15px); }
+    }
+
+    .symbol {
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .symbol:nth-child(1) {
+      animation-name: floatSymbol, sway;
+      animation-duration: 22s, 6s;
+      animation-delay: 0s, 0s;
+    }
+    .symbol:nth-child(2) {
+      animation-name: floatSymbol, sway;
+      animation-duration: 25s, 7s;
+      animation-delay: 5s, 1s;
+    }
+    .symbol:nth-child(3) {
+      animation-name: floatSymbol, sway;
+      animation-duration: 20s, 5s;
+      animation-delay: 10s, 2s;
+    }
+    .symbol:nth-child(4) {
+      animation-name: floatSymbol, sway;
+      animation-duration: 23s, 8s;
+      animation-delay: 3s, 1.5s;
+    }
+    .symbol:nth-child(5) {
+      animation-name: floatSymbol, sway;
+      animation-duration: 21s, 6.5s;
+      animation-delay: 7s, 0.5s;
+    }
+
+    /* Energy beam in center */
+    .energy-beam {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(175,122,197,0.3), rgba(175,122,197,0.7), rgba(175,122,197,0.3));
+      animation: pulseBeam 3s ease-in-out infinite alternate;
+      filter: blur(1px);
+      z-index: 0;
+    }
+
+    @keyframes pulseBeam {
+      0% { opacity: 0.2; transform: translateX(-50%) scaleY(0.9); }
+      100% { opacity: 0.6; transform: translateX(-50%) scaleY(1.05); }
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating symbols -->
+  <div class="symbols">
+    <div class="symbol">🕉</div>
+    <div class="symbol">☯</div>
+    <div class="symbol">🔮</div>
+    <div class="symbol">🧘</div>
+    <div class="symbol">🕉</div>
+  </div>
+
+  <!-- Healing energy beam -->
+  <div class="energy-beam"></div>
+
+  <!-- Main content -->
+  <div class="container">
+    <h1>Lama Fera Healing</h1>
+    <p>Lama Fera is a powerful energy healing technique practiced by Buddhist monks in the Himalayas. It involves channeling divine energy through sacred symbols and mantras to release negative energy, heal emotional wounds, and restore inner peace.</p>
+    <p>Unlike other healing methods, Lama Fera works quickly and deeply, removing unwanted energies and blockages from the aura, chakras, and physical body. It’s especially effective for emotional release, spiritual protection, and aura cleansing.</p>
+    <p>As a high-vibration spiritual modality, Lama Fera connects the soul to higher realms, assisting in deep transformation and karmic healing. It’s a perfect addition to your self-healing journey or spiritual growth practice.</p>
+  </div>
+
+  <footer>
+    © 2025 Lama Fera Healing Center
+  </footer>
+
+</body>
+</html>
+{% endblock home %}

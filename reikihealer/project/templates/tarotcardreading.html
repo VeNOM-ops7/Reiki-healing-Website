@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block home %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarot Card Reading</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    body {
+      margin: 0;
+      background: #121212;
+      color: #ccc;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      color: #e0e0e0;
+      margin-bottom: 2rem;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #d3aaff, 0 0 10px #d3aaff, 0 0 20px #b57aff, 0 0 40px #b57aff;
+        color: #e0c0ff;
+      }
+      to {
+        text-shadow: 0 0 20px #b57aff, 0 0 30px #b57aff, 0 0 50px #8155aa, 0 0 70px #8155aa;
+        color: #cfa0ff;
+      }
+    }
+
+    .card-container {
+      perspective: 1000px;
+      width: 180px;
+      height: 260px;
+      margin: 2rem auto 3rem;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      cursor: pointer;
+    }
+
+    .card.flip {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      box-shadow: 0 0 25px #b57aff, 0 0 40px #7d4cff;
+    }
+
+    .card-front {
+      background: linear-gradient(135deg, #7d4cff, #b57aff);
+      animation: pulse 4s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 20px #b57aff, 0 0 40px #7d4cff;
+      }
+      50% {
+        box-shadow: 0 0 35px #d3aaff, 0 0 60px #d3aaff;
+      }
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: #000;
+      background-image: url('https://i.pinimg.com/736x/ce/08/c4/ce08c464a90dba3c7e6c9b0d6a1b85fd.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #ddd;
+      max-width: 850px;
+      margin: 1.5rem auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+    }
+
+    p:nth-of-type(1) { animation-delay: 0.5s; }
+    p:nth-of-type(2) { animation-delay: 1s; }
+    p:nth-of-type(3) { animation-delay: 1.5s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Tarot Card Reading</h1>
+
+    <div class="card-container" onclick="flipCard(this)">
+      <div class="card">
+        <div class="card-face card-front"></div>
+        <div class="card-face card-back"></div>
+      </div>
+    </div>
+
+    <p>Tarot card reading is an ancient practice that uses symbolic cards to provide insight and guidance on life’s questions and challenges.</p>
+    <p>Each card carries unique meanings and messages, helping to uncover hidden truths and illuminate your path.</p>
+    <p>This art of divination empowers reflection and intuitive decision-making in your spiritual journey.</p>
+  </div>
+
+  <footer>
+    © 2025 Your Tarot Reading Center
+  </footer>
+
+  <script>
+    function flipCard(container) {
+      container.querySelector('.card').classList.toggle('flip');
+    }
+  </script>
+
+</body>
+</html>
+
+
+{% endblock home %}
